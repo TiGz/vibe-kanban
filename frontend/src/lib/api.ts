@@ -6,7 +6,7 @@ import {
   Config,
   CreateFollowUpAttempt,
   EditorType,
-  CreateGitHubPrRequest,
+  CreatePrApiRequest,
   CreateTask,
   CreateAndStartTaskRequest,
   CreateTaskAttemptBody,
@@ -687,7 +687,7 @@ export const attemptsApi = {
 
   createPR: async (
     attemptId: string,
-    data: CreateGitHubPrRequest
+    data: CreatePrApiRequest
   ): Promise<Result<string, CreatePrError>> => {
     const response = await makeRequest(`/api/task-attempts/${attemptId}/pr`, {
       method: 'POST',
