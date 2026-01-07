@@ -137,7 +137,7 @@ fn generate_types_content() -> String {
         server::routes::task_attempts::pr::GetPrCommentsError::decl(),
         server::routes::task_attempts::pr::GetPrCommentsQuery::decl(),
         services::services::git_host::UnifiedPrComment::decl(),
-        services::services::git_host::GitHostProvider::decl(),
+        services::services::git_host::ProviderKind::decl(),
         server::routes::task_attempts::RepoBranchStatus::decl(),
         services::services::filesystem::DirectoryEntry::decl(),
         services::services::filesystem::DirectoryListResponse::decl(),

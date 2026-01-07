@@ -45,7 +45,6 @@ use serde::{Deserialize, Serialize};
 use services::services::{
     container::ContainerService,
     git::{ConflictOp, GitCliError, GitServiceError},
-    git_host,
 };
 use sqlx::Error as SqlxError;
 use ts_rs::TS;
@@ -448,9 +447,6 @@ pub async fn push_task_attempt_branch(
     let workspace_path = Path::new(&container_ref);
     let worktree_path = workspace_path.join(&repo.name);
 
-    let git_host_service = git_host::create_service(&worktree_path)?;
-    git_host_service.check_auth().await?;
-
     match deployment
         .git()
         .push_to_remote(&worktree_path, &workspace.branch, false)
@@ -485,9 +481,6 @@ pub async fn force_push_task_attempt_branch(
         .await?;
     let workspace_path = Path::new(&container_ref);
     let worktree_path = workspace_path.join(&repo.name);
-
-    let git_host_service = git_host::create_service(&worktree_path)?;
-    git_host_service.check_auth().await?;
 
     deployment
         .git()

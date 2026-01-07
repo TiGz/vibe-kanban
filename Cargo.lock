@@ -4774,6 +4774,7 @@ dependencies = [
  "db",
  "dirs 5.0.1",
  "dunce",
+ "enum_dispatch",
  "executors",
  "fst",
  "futures",
